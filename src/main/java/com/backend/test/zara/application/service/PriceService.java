@@ -24,6 +24,15 @@ public class PriceService implements PriceUsecase {
         this.priceRepository = priceRepository;
     }
 
+    /**
+     * Metodo que obtiene todos los precios para una fecha, producto y cadena y devuelve el precio final y tarifa con
+     * prioridad más alta.
+     *
+     * @param date      Fecha de aplicación del precio.
+     * @param productId Identificador del producto.
+     * @param brandId   Identificador de la cadena.
+     * @return Objeto con los datos de precio final y tarifa a aplicar.
+     */
     @Override
     public Optional<PriceCo> getPrice(LocalDateTime date, String productId, String brandId) {
         return priceRepository.getPrices(date, productId, brandId)

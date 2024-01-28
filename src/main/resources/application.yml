@@ -1,3 +1,5 @@
+project:
+  version: @project.version@
 server:
   port: 8080
   servlet:
@@ -12,4 +14,6 @@ spring:
     console:
       enabled: true
       path: /h2-console
+spring-doc:
+  version: 3.0.0
 
