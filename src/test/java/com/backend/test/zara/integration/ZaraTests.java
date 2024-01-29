@@ -1,13 +1,10 @@
 package com.backend.test.zara.integration;
 
-
-import com.backend.test.zara.application.service.PriceService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.util.LinkedMultiValueMap;
@@ -27,10 +24,6 @@ class ZaraTests {
 
     @Autowired
     private MockMvc mockMvc;
-
-    @SpyBean
-    private PriceService priceService;
-
 
     @Test
     @DisplayName("Fecha: 2020-06-14 - Hora: 10:00 - ProductId: 35455 - BrandId: 1")
