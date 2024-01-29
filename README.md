@@ -4,6 +4,8 @@
 
 El servicio se levanta en localhost puerto 8080 bajo el context-path: /v1/
 
+Desarrollado en Java 17
+
 ## Documentación Swagger
 
 Se puede acceder al Swagger API del controlador a través
