@@ -10,13 +10,17 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -68,15 +72,19 @@ public class PriceController {
             @Parameter(description = "Fecha de aplicación",
                     name = "date",
                     required = true)
-            @NotBlank @DateTimeFormat(pattern = "yyyy-MM-dd-HH.mm.ss") @RequestParam(name = "date") LocalDateTime date,
+            @NotNull(message = "La fecha no puede ser nula")
+            @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+            @RequestParam(name = "date") LocalDateTime date,
             @Parameter(description = "Identificador del producto",
                     name = "productId",
                     required = true)
-            @NotBlank @RequestParam(name = "productId") String productId,
+            @NotBlank(message = "El productId no puede estar vacio")
+            @RequestParam(name = "productId") String productId,
             @Parameter(description = "Identificador de la cadena",
                     name = "brandId",
                     required = true)
-            @NotBlank @RequestParam(name = "brandId") String brandId
+            @NotBlank(message = "El brandId no puede estar vacio")
+            @RequestParam(name = "brandId") String brandId
     ) {
         log.info(
                 "Petición para consultar el precio final. Date: {}, Product Id: {}, Brand Id: {}",
