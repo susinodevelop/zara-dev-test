@@ -13,7 +13,7 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <name>zara</name>
-    <description>Demo project for Spring Boot</description>
+    <description>Backend dev test for Zara</description>
 
     <properties>
         <java.version>17</java.version>
@@ -81,8 +81,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>1.8</source> <!-- depending on your project -->
-                    <target>1.8</target> <!-- depending on your project -->
+                    <source>17</source>
+                    <target>17</target>
                     <annotationProcessorPaths>
                         <path>
                             <groupId>org.projectlombok</groupId>
@@ -99,7 +99,6 @@
                             <artifactId>lombok-mapstruct-binding</artifactId>
                             <version>${lombok.mapstruct.binding.version}</version>
                         </path>
-                        <!-- other annotation processors -->
                     </annotationProcessorPaths>
                 </configuration>
             </plugin>
